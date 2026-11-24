@@ -1,0 +1,218 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\babelprovide[import,main]{slovenian}
+\usepackage{charter}
+\usepackage{microtype}
+\renewcommand{\ttdefault}{lmtt}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{placeins}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+
+\graphicspath{{slike/}}
+\setlength{\parskip}{0.4em}
+\setlist{itemsep=1pt,topsep=3pt}
+
+\titleformat{\section}{\Large\bfseries}{\thesection}{0.8em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{0.8em}{}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Ugani poster igre}
+\fancyhead[R]{\small Pregled obstoječih rešitev}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{document}
+
+\begin{titlepage}
+  \centering
+  \vspace*{3cm}
+  {\large Naloga 6: Priprava na razvoj\par}
+  \vspace{1.5cm}
+  {\Huge\bfseries Ugani poster igre\par}
+  \vspace{0.5cm}
+  {\Large Pregled obstoječih rešitev\par}
+  \vspace{2.5cm}
+  % imena članov skupine
+  {\large
+  Blaž Hostnikar\\[0.3em]
+  Jaša Vodovnik\\[0.3em]
+  Aldin Abdić\par}
+  \vfill
+  {\large november 2026\par}
+\end{titlepage}
+
+\section{Uvod}
+
+Naš projekt je spletna igra, v kateri igralec ugiba videoigre po njihovih
+posterjih oz.\ naslovnicah. Na začetku je poster v celoti skrit, razdeljen pa je
+na mrežo manjših polj. Igralec polja odkriva enega za drugim in poskuša čim prej
+ugotoviti, za katero igro gre. Če igro ugane z manj odkritimi polji, dobi več
+točk.
+
+Ideja izhaja iz dnevnih ugank, ki so postale popularne z igro
+Wordle~\cite{wordle}. Takih iger je danes veliko, tudi takih, ki so posvečene
+videoigram, zato smo pred začetkom dela pogledali, kaj že obstaja. Izbrali smo
+tri rešitve, ki so naši ideji najbližje, in si pri vsaki zapisali, kaj nam je
+bilo všeč in kaj ne.
+
+\section{Obstoječe rešitve}
+
+\FloatBarrier
+\subsection{GuessThe.Game}
+
+GuessThe.Game je brezplačna spletna uganka, ki jo je leta 2022 objavil Sam
+Stiles, avtor pa navaja, da se je zgledoval po igrah Wordle, Heardle in
+Framed~\cite{guessthegame_itch}. Vsak dan je na voljo ena igra, ki jo mora
+igralec prepoznati iz posnetkov zaslona~\cite{guessthegame}.
+
+\paragraph{Funkcionalnosti}
+\begin{itemize}
+  \item nova uganka vsak dan, enaka za vse igralce,
+  \item do šest posnetkov zaslona, pri čemer vsak naslednji pove nekaj več
+        o igri~\cite{trendhunter_gtg},
+  \item iskalno polje s predlogi imen iger in gumb za preskok,
+  \item odštevalnik do naslednje uganke in arhiv starejših ugank.
+\end{itemize}
+
+\paragraph{Prednosti}
+Igra je zelo enostavna, takoj jo lahko začneš igrati in ne potrebuješ računa.
+Ker vsi dobijo isto uganko, je zabavno primerjati rezultate s prijatelji.
+
+\paragraph{Slabosti}
+Na dan je samo ena uganka, kar je hitro odigrano. Igralec ne more vplivati na
+to, kaj bo videl naslednje, saj samo preklaplja med posnetki. Manjka tudi
+kakšna lestvica, ki bi motivirala k vsakodnevnemu igranju.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[height=0.42\textheight]{guessthegame.png}
+  \caption{GuessThe.Game s prvim posnetkom zaslona, gumbi za posnetke 1--6,
+  iskalnim poljem in odštevalnikom do nove uganke~\cite{guessthegame}.}
+  \label{fig:guessthegame}
+\end{figure}
+
+\FloatBarrier
+\subsection{Gamedle}
+
+Gamedle je spletna in mobilna igra z več načini, v vseh pa igralec ugiba
+videoigro. Klasični način (\emph{Cover art}) pokaže pikseliran ovitek
+igre~\cite{gamedle_moby}, ostali načini pa uporabljajo umetniške slike, like,
+ključne besede in namige~\cite{gamedle}.
+
+\paragraph{Funkcionalnosti}
+\begin{itemize}
+  \item pikseliran ovitek, ki z vsakim napačnim odgovorom pokaže večji ostri
+        del~\cite{gamedle_pcgames},
+  \item šest življenj in namigi po napačnem ugibu (npr.\ ali se ujemata
+        platforma ali franšiza), kot je vidno na sliki~\ref{fig:gamedle},
+  \item več dnevnih izzivov, tedenska tema in neskončni način,
+  \item statistika: niz dni, število poskusov in dosežki.
+\end{itemize}
+
+\paragraph{Prednosti}
+Od vseh treh je Gamedle naši ideji najbolj podoben, ker gre za ugibanje po
+naslovnici, ki se postopoma razkriva. Namigi po napačnem ugibu so dobra ideja,
+saj igralec vsaj nekaj izve tudi, ko se zmoti.
+
+\paragraph{Slabosti}
+Načinov je toliko, da se na začetku težko znajdeš. Ovitek se vedno razkriva po
+istem vrstnem redu, zato igralec ne more sam izbrati, kateri del ga zanima.
+Stran ima tudi oglase.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[height=0.45\textheight]{gamedle.png}
+  \caption{Način \emph{Cover art} v igri Gamedle. Zgornji del ovitka je še
+  pikseliran, spodnji pa že razkrit. Pod iskalnim poljem so prejšnji ugibi
+  z namigi in preostala življenja~\cite{gamedle}.}
+  \label{fig:gamedle}
+\end{figure}
+
+\FloatBarrier
+\subsection{Posterdle}
+
+Posterdle je dnevna uganka za filme. Igralec mora uganiti film po
+plakatu, ki je na začetku močno zamegljen oz.\ pikseliran in se sčasoma
+izostri~\cite{posterdle,posterdle_creativebloq}.
+
+\paragraph{Funkcionalnosti}
+\begin{itemize}
+  \item šest poskusov in časovna omejitev 20~sekund~\cite{posterdle_creativebloq},
+  \item plakat se postopoma izostri,
+  \item hitrejši pravilen odgovor prinese več točk,
+  \item predlogi naslovov med tipkanjem (slika~\ref{fig:posterdle}).
+\end{itemize}
+
+\paragraph{Prednosti}
+Zaradi časovne omejitve je igra precej napeta. Všeč nam je tudi, da je plakat
+kot vir uganke zelo blizu temu, kar delamo mi.
+
+\paragraph{Slabosti}
+Igra je samo za filme. Ker je cela slika vidna že od začetka (samo nejasno),
+lahko barve in razporeditev hitro izdajo odgovor. Tudi tukaj igralec ne odloča
+o tem, kako se slika razkriva.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.85\textwidth]{posterdle.png}
+  \caption{Posterdle. Plakat v sredini je že razkrit, ob straneh so pikselirani
+  plakati, spodaj pa vnos s predlogi in gumb \emph{Skip}~\cite{posterdle}.}
+  \label{fig:posterdle}
+\end{figure}
+
+\FloatBarrier
+\subsection{Primerjava}
+
+Glavne razlike med pregledanimi rešitvami so zbrane v
+tabeli~\ref{tab:primerjava}.
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{@{}llll@{}}
+    \toprule
+    & \textbf{GuessThe.Game} & \textbf{Gamedle} & \textbf{Posterdle} \\
+    \midrule
+    Tema              & videoigre        & videoigre     & filmi \\
+    Slika             & posnetki zaslona & ovitek        & plakat \\
+    Razkrivanje       & nov posnetek     & pikselizacija & zameglitev \\
+    Izbira dela slike & ne               & ne            & ne \\
+    Neskončni način   & ne               & da            & ne \\
+    Lestvica          & ne               & ne            & ne \\
+    \bottomrule
+  \end{tabular}
+  \caption{Primerjava pregledanih rešitev.}
+  \label{tab:primerjava}
+\end{table}
+
+\FloatBarrier
+\section{Zaključek}
+
+Iz pregleda bomo prevzeli tisto, kar se je pri vseh treh izkazalo za dobro:
+dnevno uganko, ki je enaka za vse, omejeno število poskusov, predloge imen iger
+med tipkanjem in možnost deljenja rezultata. Od Gamedla bomo vzeli še
+neskončni način in namige po napačnem ugibu.
+
+Pri razkrivanju pa bomo naredili drugače. Poster bo razdeljen na polja in
+igralec bo sam izbral, katero polje odpre, vsako odprto polje pa ga stane nekaj
+točk. Tako igra dobi nekaj strategije, saj se mora igralec odločiti, ali bo
+tvegal ugib ali raje odprl še eno polje. Nobena od pregledanih rešitev tudi
+nima lestvice, zato bomo dodali dnevno in tedensko lestvico ter preprost
+uporabniški profil s statistiko. Stran bomo poskušali obdržati čim bolj
+pregledno, z enim glavnim načinom igre in brez oglasov.
+
+\bibliographystyle{plain}
+\bibliography{viri}
+
+\end{document}
